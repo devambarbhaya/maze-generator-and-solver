@@ -51,11 +51,14 @@ class Maze:
         self._cells[i][j].draw(x1, y1, x2, y2)
         self._animate()
 
-    def _animate(self):
+    def _animate(self, backtracking=False):
         if self._win is None:
             return
         self._win.redraw()
-        time.sleep(0.05)
+        if backtracking:
+            time.sleep(0.1)
+        else:
+            time.sleep(0.02)
 
     def _break_entrance_and_exit(self):
         self._cells[0][0].has_top_wall = False
@@ -121,7 +124,7 @@ class Maze:
     # Returns True if the cell is the end cell OR if it leads to end cell
     # Returns False if this is a loser cell        
     def _solve_r(self, i, j):
-        self._animate()
+        self._animate()  # Default animation for visiting
 
         # Visit the current cell
         self._cells[i][j].visited = True
@@ -141,6 +144,7 @@ class Maze:
                 return True
             else:
                 self._cells[i][j].draw_move(self._cells[i - 1][j], True)
+                self._animate(backtracking=True)  # Slow animation for backtracking
 
         # Move right if there is no wall and it hasn't been visited
         if (
@@ -153,6 +157,7 @@ class Maze:
                 return True
             else:
                 self._cells[i][j].draw_move(self._cells[i + 1][j], True)
+                self._animate(backtracking=True)
 
         # Move up if there is no wall and it hasn't been visited
         if (
@@ -165,6 +170,7 @@ class Maze:
                 return True
             else:
                 self._cells[i][j].draw_move(self._cells[i][j - 1], True)
+                self._animate(backtracking=True)
 
         # Move down if there is no wall and it hasn't been visited
         if (
@@ -177,6 +183,7 @@ class Maze:
                 return True
             else:
                 self._cells[i][j].draw_move(self._cells[i][j + 1], True)
+                self._animate(backtracking=True)
 
         # We went the wrong way let the previous cell know by returning False
         return False
