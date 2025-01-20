@@ -22,7 +22,7 @@ class Cell:
         self._y2 = y2
 
         wall_color = "#2f4f4f"  # DarkSlateGray
-        empty_color = "#f0f8ff"  # AliceBlue
+        empty_color = "#ffffff"  # AliceBlue
 
         if self.has_left_wall:
             line = Line(Point(x1, y1), Point(x1, y2))
@@ -63,7 +63,7 @@ class Cell:
 
         fill_color = "#ff6347"  # Tomato
         if undo:
-            fill_color = "#4682b4"  # SteelBlue
+            fill_color = "#ffffff"  # SteelBlue
 
         line = Line(Point(x_center, y_center), Point(x_center2, y_center2))
         self._win.draw_line(line, fill_color)

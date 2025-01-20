@@ -6,7 +6,7 @@ class Window:
         self.__root = Tk()
         self.__root.title("Maze Generator and Solver")
         self.__root.protocol("WM_DELETE_WINDOW", self.close)
-        self.__canvas = Canvas(self.__root, bg="#f0f8ff", height=height, width=width)  # AliceBlue background
+        self.__canvas = Canvas(self.__root, bg="#ffffff", height=height, width=width)  # AliceBlue background
         self.__canvas.pack(fill=BOTH, expand=1)
         self.__running = False
 
