@@ -4,18 +4,18 @@ import sys
 
 def main():
     # Configure maze dimensions
-    num_rows = 50  # Increase the number of rows
-    num_cols = 50  # Increase the number of columns
-    margin = 50
+    num_rows = 100  # Increase the number of rows
+    num_cols = 100  # Increase the number of columns
+    margin = 5
     screen_x = 1200  # Larger canvas width
-    screen_y = 1200   # Larger canvas height
+    screen_y = 800   # Larger canvas height
 
     # Dynamically adjust cell size
     cell_size_x = (screen_x - 2 * margin) / num_cols
     cell_size_y = (screen_y - 2 * margin) / num_rows
 
     # Increase recursion limit for large mazes
-    sys.setrecursionlimit(20000)
+    sys.setrecursionlimit(2000000)
 
     # Create the window
     win = Window(screen_x, screen_y)

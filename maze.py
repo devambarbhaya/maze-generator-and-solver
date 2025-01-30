@@ -55,10 +55,10 @@ class Maze:
         if self._win is None:
             return
         self._win.redraw()
-        if backtracking:
-            time.sleep(0.1)
-        else:
-            time.sleep(0.02)
+        # if backtracking:
+        #     time.sleep(0.05)
+        # else:
+        #     time.sleep(0.02)
 
     def _break_entrance_and_exit(self):
         self._cells[0][0].has_top_wall = False
